@@ -5,8 +5,7 @@ proxy server acme-lsp.
 L is usually run from within the acme text editor, where $winid
 environment variable is set to the ID of currently focused window.
 It sends this ID to acme-lsp, which uses it to compute the context for
-LSP commands. Note: L merely asks acme-lsp to run an LSP command--any
-output of the command is printed to stdout by acme-lsp, not L.
+LSP commands.
 
 If L is run outside of acme (therefore $winid is not set), L will
 attempt to find the focused window ID by connecting to acmefocused
@@ -26,7 +25,7 @@ List of sub-commands:
 		send the location to the plumber.
 
 	fmt
-		Format current window buffer.
+		Organize imports and format current window buffer.
 
 	hov
 		Show more information about the identifier under the cursor
@@ -70,5 +69,16 @@ List of sub-commands:
 		Remove given directories to the set of workspace directories.
 		Current working directory is removed if no directory is specified.
 
+  -acme.addr string
+    	address where acme is serving 9P file system (default "/tmp/ns.fhs.:0/acme")
+  -acme.net string
+    	network where acme is serving 9P file system (default "unix")
+  -proxy.addr string
+    	address used for communication between acme-lsp and L (default "/tmp/ns.fhs.:0/acme-lsp.rpc")
+  -proxy.net string
+    	network used for communication between acme-lsp and L (default "unix")
+  -showconfig
+    	show configuration values and exit
+  -v	Verbose output
 */
 package main
